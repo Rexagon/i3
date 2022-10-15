@@ -140,6 +140,9 @@ struct Config {
      * By default, this is disabled. */
     hide_edge_borders_mode_t hide_edge_borders;
 
+    /** Remove titlebar if only one window in workspace */
+    bool hide_lone_tab_title;
+
     /** By default, a workspace bar is drawn at the bottom of the screen.
      * If you want to have a more fancy bar, it is recommended to replace
      * the whole bar by dzen2, for example using the i3-wsbar script which

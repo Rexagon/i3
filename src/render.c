@@ -98,7 +98,15 @@ void render_con(Con *con) {
     }
 
     /* find the height for the decorations */
-    params.deco_height = render_deco_height();
+    Con *first_child = TAILQ_FIRST(&(con->nodes_head));
+    if (config.hide_lone_tab_title &&
+        con->type == CT_WORKSPACE &&
+        first_child != NULL &&
+        TAILQ_NEXT(first_child, nodes) == NULL) {
+        params.deco_height = 0;
+    } else {
+        params.deco_height = render_deco_height();
+    }
 
     /* precalculate the sizes to be able to correct rounding errors */
     params.sizes = precalculate_sizes(con, &params);

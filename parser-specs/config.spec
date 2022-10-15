@@ -33,6 +33,7 @@ state INITIAL:
   windowtype = 'default_border', 'new_window', 'default_floating_border', 'new_float'
       -> DEFAULT_BORDER
   'hide_edge_borders'                      -> HIDE_EDGE_BORDERS
+  'hide_lone_tab_title'                    -> HIDE_LONE_TAB_TITLE
   'for_window'                             -> FOR_WINDOW
   'assign'                                 -> ASSIGN
   'no_focus'                               -> NO_FOCUS
@@ -232,6 +233,11 @@ state CRITERION_STR:
 state FOCUS_FOLLOWS_MOUSE:
   value = word
       -> call cfg_focus_follows_mouse($value)
+
+# hide_lone_tab_title bool
+state HIDE_LONE_TAB_TITLE:
+  value = word
+      -> call cfg_hide_lone_tab_title($value)
 
 # mouse_warping warping_t
 state MOUSE_WARPING:

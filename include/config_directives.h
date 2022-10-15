@@ -60,6 +60,7 @@ CFGFUN(focus_on_window_activation, const char *mode);
 CFGFUN(title_align, const char *alignment);
 CFGFUN(show_marks, const char *value);
 CFGFUN(hide_edge_borders, const char *borders);
+CFGFUN(hide_lone_tab_title, const char *value);
 CFGFUN(assign_output, const char *output);
 CFGFUN(assign, const char *workspace, bool is_number);
 CFGFUN(no_focus);

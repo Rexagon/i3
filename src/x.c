@@ -460,6 +460,13 @@ void x_draw_decoration(Con *con) {
     Con *parent = con->parent;
     bool leaf = con_is_leaf(con);
 
+    if (config.hide_lone_tab_title &&
+        leaf &&
+        parent->type == CT_WORKSPACE &&
+        TAILQ_NEXT(con, nodes) == NULL &&
+        TAILQ_PREV(con, nodes_head, nodes) == NULL)
+        return;
+
     /* This code needs to run for:
      *  • leaf containers
      *  • non-leaf containers which are in a stacked/tabbed container
